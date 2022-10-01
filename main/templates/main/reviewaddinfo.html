@@ -1,0 +1,63 @@
+{% extends 'main/base.html' %}
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% block content %}
+<head>
+<!-- Normal banner empieza -->
+<section class="normal-breadcrumb set-bg"  data-setbg="{% static 'img/banneranime.png' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="normal__breadcrumb__text">
+                    <h2>Review</h2>
+                    <p>Añade una nueva reseña</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Normal Breadcrumb End -->
+</head>
+
+<!-- sección de añadir nueva review -->
+<section>
+    <div class="lightBg">
+      <div class="container">
+          <form id="BlogForm" method="POST" action="{% url 'main:blogaddinfo' %}" enctype="multipart/from-data">
+          {% csrf_token %}
+              <label for="author">Autor</label>
+              {{form.author}}
+  
+              <label for="name">Nombre</label>
+              {{form.name}}
+  
+              <label for="descripcion">Descripción</label>
+              {{form.descripcion}}
+
+              <label for="body">Cuerpo</label>
+              {{form.body}}
+
+              <label for="image">Imagen</label>
+              {{form.image}}
+              <br>
+              <br>
+
+              <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
+              <input class='btn btnPrimary' class="fa fa-location-arrow" type="submit" value="Submit">
+          </form>
+      </div>
+    </div>
+</section>
+<!-- Fin de la seccion de añadir review -->
+
+
+
+
+    <body>
+    </body>
+    {% endblock %}
+
+</html>
